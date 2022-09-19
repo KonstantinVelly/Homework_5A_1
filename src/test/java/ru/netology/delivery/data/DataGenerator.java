@@ -12,24 +12,24 @@ public class DataGenerator {
         private DataGenerator() {
         }
 
-        public static String generateDate(int shift) {
+        public static String getDate(int shift) {
             String date = LocalDate.now().plusDays(shift).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
             return date;
         }
 
-        public static String generateCity(String locale) {
+        public static String getCity(String locale) {
             Faker faker = new Faker(new Locale("ru"));
             String city = faker.address().cityName();
             return city;
         }
 
-        public static String generateName(String locale) {
+        public static String getName(String locale) {
             Faker faker = new Faker(new Locale("ru"));
             String name = faker.name().fullName();
             return name;
         }
 
-        public static String generatePhone(String locale) {
+        public static String getPhone(String locale) {
             Faker faker = new Faker(new Locale("ru"));
             String phone = faker.phoneNumber().phoneNumber();
             return phone;
@@ -39,8 +39,8 @@ public class DataGenerator {
             private Registration() {
             }
 
-            public static UserInfo generateUser(String locale) {
-                return new UserInfo(generateCity(locale),generateName(locale),generatePhone(locale));
+            public static UserInfo getUser(String locale) {
+                return new UserInfo(getCity(locale),getName(locale),getPhone(locale));
             }
         }
 

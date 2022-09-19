@@ -21,12 +21,12 @@ import static com.codeborne.selenide.Selenide.*;
 
         @Test
         @DisplayName("Plan and re-plan the meeting")
-        void shouldSuccessfulPlanAndReplanMeeting() {
-            var validUser = DataGenerator.Registration.generateUser("ru");
+        void shouldPlanMeetingsRightWay() {
+            var validUser = DataGenerator.Registration.getUser("ru");
             var daysToAddForFirstMeeting = 4;
-            var firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
-            var daysToAddForSecondMeeting = 7;
-            var secondMeetingDate = DataGenerator.generateDate(daysToAddForSecondMeeting);
+            var firstMeetingDate = DataGenerator.getDate(daysToAddForFirstMeeting);
+            var daysToAddForNextMeeting = 7;
+            var secondMeetingDate = DataGenerator.getDate(daysToAddForNextMeeting);
 
             $("[data-test-id='city'] input").setValue(validUser.getCity());
             $x("//input[@placeholder='Дата встречи']").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
